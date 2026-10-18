@@ -1,14 +1,6 @@
-# robots.txt for bgremove.idcardtools.com
-# Free AI background remover — runs 100% in the browser
-
-# ─── Allow all standard crawlers ───
 User-agent: *
 Allow: /
-Disallow: /api/
-Disallow: /_next/
-Disallow: /private/
 
-# ─── Allow AI crawlers (GEO / AEO) ───
 User-agent: GPTBot
 Allow: /
 
@@ -54,7 +46,6 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
-# ─── Block bad / useless bots ───
 User-agent: AhrefsBot
 Disallow: /
 
@@ -67,5 +58,4 @@ Disallow: /
 User-agent: DotBot
 Disallow: /
 
-# ─── Sitemap ───
 Sitemap: https://bgremove.idcardtools.com/sitemap.xml
