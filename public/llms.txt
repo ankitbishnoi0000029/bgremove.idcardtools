@@ -1,50 +1,32 @@
 # BgRemove
 
-> Free AI background remover that runs 100% in the browser. Exports transparent 4K PNGs. No signup, no uploads, no watermark.
+> A free online background remover. Selected images are processed in the browser and exported as PNGs with transparent backgrounds.
 
-## Core pages
+## Pages
 
-- [Home](https://bgremove.idcardtools.com): Upload an image, remove its background, download a transparent 4K PNG. Processing is entirely client-side (WebAssembly).
-- [Blog](https://bgremove.idcardtools.com/blog): Guides, comparisons, and tutorials on background removal.
-- [About](https://bgremove.idcardtools.com/about): How BgRemove works, who it's for.
-- [Privacy](https://bgremove.idcardtools.com/privacy): Images are never uploaded to a server.
-- [Terms](https://bgremove.idcardtools.com/terms): Terms of use.
+- [Home](https://bgremove.ankuaitools.com): Remove an image background, review the cutout, and download a PNG.
+- [About](https://bgremove.ankuaitools.com/about): How browser-based processing and PNG export work.
+- [Blog](https://bgremove.ankuaitools.com/blog): Practical background removal and transparent PNG guides.
+- [Privacy](https://bgremove.ankuaitools.com/privacy): Image handling and website network requests.
+- [Terms](https://bgremove.ankuaitools.com/terms): Terms and output-use limitations.
 
-## Blog posts
+## Guides
 
-- [How to Remove Image Background for Free in 2026](https://bgremove.idcardtools.com/blog/how-to-remove-image-background-free)
-- [7 Best Free Background Remover Tools in 2026](https://bgremove.idcardtools.com/blog/best-free-background-remover-tools-2026)
-- [4K Transparent PNG Export: Complete Guide](https://bgremove.idcardtools.com/blog/4k-transparent-png-export-guide)
-- [Remove Background from ID Card Photo](https://bgremove.idcardtools.com/blog/remove-background-id-card-photo)
+- [How to remove an image background online for free](https://bgremove.ankuaitools.com/blog/how-to-remove-image-background-free)
+- [How to choose a free online background remover](https://bgremove.ankuaitools.com/blog/best-free-background-remover-tools-2026)
+- [Transparent PNGs: canvas size, backgrounds, and image detail](https://bgremove.ankuaitools.com/blog/4k-transparent-png-export-guide)
+- [How to prepare an ID photo background carefully](https://bgremove.ankuaitools.com/blog/remove-background-id-card-photo)
+- [How to remove a background from product photos](https://bgremove.ankuaitools.com/blog/remove-background-from-product-photos)
 
-## Key facts
+## Tool details
 
-- Price: Free
-- Signup: Not required
-- Watermark: None
-- Processing: 100% client-side (WebAssembly)
-- Output: Transparent PNG, 4K (3840×2160)
-- Supported input: PNG, JPG, WEBP
-- Works on: Desktop, tablet, mobile browsers
-- Domains: bgremove.idcardtools.com
+- Price: Free to use; no account required.
+- Input formats: PNG, JPG, and WEBP.
+- Download: PNG with a 3840 × 2160 pixel canvas; the tool does not add a watermark.
+- Processing: The selected image is processed in the browser. The website and model files still load in the browser.
+- Background options: Transparent, white, black, or brand color in the editor.
+- Limitations: Enlarging a small source does not add detail, and automatic cutouts can need review.
 
-## FAQ
+## Sitemap
 
-### Is BgRemove free?
-Yes. Free with no signup, no watermark, and no hidden limits.
-
-### Are images uploaded?
-No. All processing happens locally in the browser. Images never leave your device.
-
-### What output do I get?
-Transparent PNG at 4K (3840×2160), preserving aspect ratio.
-
-### Does it work on mobile?
-Yes. Works in any modern mobile browser without an app install.
-
-### Which image formats are supported?
-PNG, JPG, and WEBP input. Output is always transparent PNG.
-
-## Contact
-
-- Website: https://bgremove.idcardtools.com
+- https://bgremove.ankuaitools.com/sitemap.xml

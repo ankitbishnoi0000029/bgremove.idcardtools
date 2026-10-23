@@ -1,10 +1,25 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "About BgRemove — Free In-Browser Background Remover",
+  title: "About BgRemove",
   description:
-    "BgRemove is a free, private, in-browser AI background remover. Learn how it works, why it runs 100% locally, and who it's built for.",
+    "Learn how BgRemove removes image backgrounds in your browser, what the transparent PNG contains, and how to review the result.",
   alternates: { canonical: "/about" },
+  openGraph: {
+    type: "website",
+    url: `${SITE_URL}/about`,
+    title: "About BgRemove",
+    description:
+      "How BgRemove processes images in your browser and what to expect from a transparent PNG export.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About BgRemove",
+    description:
+      "How BgRemove processes images in your browser and what to expect from a transparent PNG export.",
+  },
 };
 
 export default function AboutPage() {
@@ -31,9 +46,14 @@ export default function AboutPage() {
       </h1>
 
       <p style={{ color: "#3d2f2c", fontSize: 16, lineHeight: 1.75 }}>
-        BgRemove is a free, browser-based AI background remover. Upload an
-        image, get a transparent 4K PNG — without signing up, without a
-        watermark, and without ever uploading your file to a server.
+        BgRemove is a free online background remover. Choose a PNG, JPG, or
+        WEBP image, process it in your browser, and download a transparent PNG
+        without creating an account. BgRemove does not add a watermark.
+      </p>
+      <p style={{ color: "#3d2f2c", fontSize: 16, lineHeight: 1.75, marginTop: 16 }}>
+        <Link href="/#upload" style={{ color: "#EB4203", fontWeight: 600 }}>
+          Open the background remover
+        </Link>
       </p>
 
       <h2
@@ -49,9 +69,12 @@ export default function AboutPage() {
         How it works
       </h2>
       <p style={{ color: "#3d2f2c", fontSize: 16, lineHeight: 1.75 }}>
-        BgRemove uses an on-device AI model that runs in your browser via
-        WebAssembly. Your image is processed locally — it never leaves your
-        device. The output is a transparent PNG at 4K resolution (3840×2160).
+        BgRemove uses an on-device model in your browser via WebAssembly. The
+        selected image is processed in the browser rather than sent to the
+        application server for removal. Your browser does request the website
+        and model files needed to run the tool. The download is a PNG on a
+        3840 × 2160 canvas; that canvas size does not add detail to a small
+        source image.
       </p>
 
       <h2
@@ -64,13 +87,13 @@ export default function AboutPage() {
           marginBottom: 12,
         }}
       >
-        Who it's for
+        Who it&apos;s for
       </h2>
       <ul style={{ color: "#3d2f2c", fontSize: 16, lineHeight: 1.8, paddingLeft: 22 }}>
-        <li>E-commerce sellers who need clean product photos.</li>
-        <li>Designers who need instant transparent PNGs.</li>
-        <li>Anyone preparing ID card or passport photos privately.</li>
-        <li>Content creators building thumbnails and banners.</li>
+        <li>People preparing product photos and listing images.</li>
+        <li>Designers who need a transparent PNG cutout.</li>
+        <li>People editing profile images, thumbnails, or presentations.</li>
+        <li>People preparing document photos, subject to the issuing authority&apos;s rules.</li>
       </ul>
 
       <h2
@@ -86,8 +109,31 @@ export default function AboutPage() {
         Pricing
       </h2>
       <p style={{ color: "#3d2f2c", fontSize: 16, lineHeight: 1.75 }}>
-        BgRemove is free. There's no paid tier, no feature lock, and no
-        watermark. If that ever changes, we'll say so clearly on this page.
+        BgRemove is free to use and does not require an account. The tool does
+        not add a watermark to its PNG download.
+      </p>
+
+      <h2
+        style={{
+          fontFamily: "'Space Grotesk', sans-serif",
+          fontSize: 22,
+          fontWeight: 700,
+          color: "#0a0a0a",
+          marginTop: 36,
+          marginBottom: 12,
+        }}
+      >
+        Review the result
+      </h2>
+      <p style={{ color: "#3d2f2c", fontSize: 16, lineHeight: 1.75 }}>
+        Automatic cutouts can miss fine or low-contrast edges. Check the
+        downloaded image at its intended size. If you are preparing a product
+        listing or official document photo, check the destination&apos;s current
+        requirements too. Read our{" "}
+        <Link href="/privacy" style={{ color: "#EB4203" }}>
+          privacy policy
+        </Link>
+        .
       </p>
     </main>
   );

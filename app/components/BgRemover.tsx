@@ -163,11 +163,11 @@ export default function BgRemover() {
   // ================= STAGE TEXT =================
   const stage = useMemo(() => {
     if (state !== "processing" && state !== "loading") return "";
-    if (progress < 10) return "Uploading image";
+    if (progress < 10) return "Loading image";
     if (progress < 30) return "Analyzing subject";
     if (progress < 60) return "Removing background";
     if (progress < 85) return "Refining edges";
-    if (progress < 95) return "Preparing 4K canvas";
+    if (progress < 95) return "Preparing 3840 × 2160 canvas";
     return "Finalizing";
   }, [progress, state]);
 
@@ -270,7 +270,7 @@ export default function BgRemover() {
     if (!resultUrl) return;
     const link = document.createElement("a");
     link.href = resultUrl;
-    link.download = `4k_${fileName.replace(/\.[^.]+$/, "")}.png`;
+    link.download = `background-removed_${fileName.replace(/\.[^.]+$/, "")}.png`;
     link.click();
   };
 
@@ -567,7 +567,7 @@ export default function BgRemover() {
                   className="inline-block h-1.5 w-1.5 rounded-full"
                   style={{ background: "#EB4203" }}
                 />
-                100% Free · No Signup · No Uploads
+                Free · No Account · In-Browser Processing
               </div>
 
               <h1
@@ -738,7 +738,7 @@ export default function BgRemover() {
                         className="text-[11px]"
                         style={{ color: "#8a7a77" }}
                       >
-                        Uploaded · processing…
+                        Selected · processing…
                       </div>
                     </div>
                   </div>
@@ -763,7 +763,7 @@ export default function BgRemover() {
               className="mx-auto mt-5 max-w-2xl text-base leading-relaxed"
               style={{ color: "#5a4a47" }}
             >
-              Remove the background from any image in seconds with AI. Export a transparent <strong style={{ color: "#0a0a0a" }}>4K PNG</strong> — no signup, no watermark, and no uploads. Everything runs in your browser.
+              Remove an image background online for free and download a transparent PNG with no account or BgRemove watermark. Processing happens in your browser; the export uses a 3840 × 2160 canvas, which does not add detail to a small original.
             </p>
           )}
 
@@ -852,7 +852,7 @@ export default function BgRemover() {
                   className="font-bold"
                   style={{ color: BRAND.secondary }}
                 >
-                  4K Transparent Result
+                  Transparent PNG result
                 </p>
                 <span
                   className="rounded-full px-3 py-1 text-xs font-semibold"
@@ -868,7 +868,7 @@ export default function BgRemover() {
               >
                 <img
                   src={resultUrl}
-                  alt="4K transparent result"
+                  alt="Transparent PNG result"
                   className="mx-auto max-h-[420px] w-auto rounded-xl transition-transform duration-500 hover:scale-[1.02]"
                 />
               </div>
@@ -893,7 +893,7 @@ export default function BgRemover() {
                     <path d="m7 10 5 5 5-5" />
                     <path d="M5 21h14" />
                   </svg>
-                  Download 4K
+                  Download PNG
                 </button>
 
                 <button

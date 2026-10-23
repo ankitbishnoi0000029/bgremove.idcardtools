@@ -1,23 +1,25 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllPosts } from "@/lib/blog";
-
-const SITE_URL =
-  process.env.NEXT_PUBLIC_URL
-    ? `https://${process.env.NEXT_PUBLIC_URL}`
-    : "https://bgremove.idcardtools.com";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Blog — Background Removal Guides & Tips",
+  title: "Background Removal Guides",
   description:
-    "Guides, comparisons, and tutorials on removing image backgrounds for free. Learn how to export transparent 4K PNGs, choose the right tool, and stay private.",
+    "Practical guides to removing image backgrounds, exporting transparent PNGs, choosing an online tool, and preparing photos carefully.",
   alternates: { canonical: "/blog" },
   openGraph: {
     type: "website",
     url: `${SITE_URL}/blog`,
-    title: "Blog — Background Removal Guides & Tips",
+    title: "Background Removal Guides — BgRemove",
     description:
-      "Guides, comparisons, and tutorials on removing image backgrounds for free.",
+      "Practical guides to transparent PNGs, online background removal, and photo preparation.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Background Removal Guides — BgRemove",
+    description:
+      "Practical guides to transparent PNGs, online background removal, and photo preparation.",
   },
 };
 
@@ -47,8 +49,9 @@ export default function BlogIndex() {
           Background Removal <span style={{ color: "#EB4203" }}>Blog</span>
         </h1>
         <p style={{ color: "#5a4a47", fontSize: 16, maxWidth: 640 }}>
-          Guides, comparisons, and tutorials on removing image backgrounds for
-          free — without uploading your photos to any server.
+          Practical guides to removing image backgrounds for free,
+          understanding transparent PNG output, and checking edits before you
+          use them.
         </p>
       </header>
 
@@ -113,12 +116,24 @@ export default function BlogIndex() {
                 gap: 12,
               }}
             >
-              <span>{new Date(post.publishedAt).toLocaleDateString()}</span>
+              <time dateTime={post.publishedAt}>
+                {new Date(`${post.publishedAt}T12:00:00Z`).toLocaleDateString(
+                  "en-US",
+                  { year: "numeric", month: "long", day: "numeric" },
+                )}
+              </time>
               <span>· {post.readMinutes} min read</span>
             </div>
           </Link>
         ))}
       </div>
+      <p style={{ marginTop: 36, color: "#5a4a47", fontSize: 15 }}>
+        Ready to make a cutout?{" "}
+        <Link href="/#upload" style={{ color: "#EB4203", fontWeight: 600 }}>
+          Try the free background remover
+        </Link>
+        .
+      </p>
     </main>
   );
 }

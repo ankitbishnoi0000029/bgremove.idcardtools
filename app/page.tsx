@@ -1,32 +1,26 @@
 import type { Metadata } from "next";
 import BgRemover from "./components/BgRemover";
 import Link from "next/link";
-
-const SITE_URL =
-  process.env.NEXT_PUBLIC_URL
-    ? `https://${process.env.NEXT_PUBLIC_URL}`
-    : "https://bgremove.idcardtools.com";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "bg remove – Remove Background from Image for Free",
+  title: "Free Online Background Remover",
   description:
-    "Remove image backgrounds instantly with AI. 100% free, no signup. Runs entirely in your browser — export transparent 4K PNGs in seconds. No uploads, no watermark.",
-  keywords:
-    "remove background, background remover, remove bg, free background remover, AI background eraser, transparent PNG, 4K background removal, remove background from image",
+    "Remove an image background online for free. Process photos in your browser and download a transparent PNG—no account or watermark.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     url: SITE_URL,
-    title: "bg remove – Remove Background from Image for Free",
+    title: "Free Online Background Remover — BgRemove",
     description:
-      "Remove image backgrounds instantly with AI. Free, no signup, 4K transparent PNG export. Runs 100% in your browser.",
+      "Remove an image background online for free. Process it in your browser and download a transparent PNG, with no account or watermark.",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "bg remove – Remove Background from Image for Free",
+    title: "Free Online Background Remover — BgRemove",
     description:
-      "Free AI background remover. 4K transparent PNG. No signup, no uploads.",
+      "Remove an image background in your browser and download a transparent PNG. Free to use, no account or watermark.",
     images: ["/og-image.png"],
   },
 };
@@ -41,7 +35,7 @@ const homepageSchema = {
       name: "BgRemove",
       url: SITE_URL,
       description:
-        "Free AI-powered background remover. Runs entirely in your browser. Exports transparent 4K PNGs. No signup, no uploads, no watermark.",
+        "A free online background remover that processes selected images in the browser and exports transparent PNGs.",
       applicationCategory: "MultimediaApplication",
       applicationSubCategory: "Background Removal",
       operatingSystem: "Any (Web Browser)",
@@ -55,97 +49,17 @@ const homepageSchema = {
       },
       featureList: [
         "AI background removal",
-        "Transparent PNG export at 4K",
-        "100% client-side processing",
-        "No signup or account required",
-        "No watermarks",
+        "Transparent PNG export",
+        "Browser-based image processing",
+        "No account required",
         "Supports PNG, JPG, WEBP",
       ],
       screenshot: `${SITE_URL}/og-image.png`,
-      publisher: { "@id": `${SITE_URL}/#organization` },
-    },
-    {
-      "@type": "Organization",
-      "@id": `${SITE_URL}/#organization`,
-      name: "BgRemove",
-      url: SITE_URL,
-      logo: { "@type": "ImageObject", url: `${SITE_URL}/logo.png` },
     },
     {
       "@type": "BreadcrumbList",
-      "@id": `${SITE_URL}/#breadcrumb`,
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
-      ],
-    },
-    {
-      "@type": "FAQPage",
-      "@id": `${SITE_URL}/#faq`,
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "Is BgRemove really free?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Yes. BgRemove is 100% free with no signup, no watermark, and no hidden limits. You can remove backgrounds and download transparent 4K PNGs at no cost.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Are my images uploaded to a server?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "No. All processing happens locally in your browser using WebAssembly. Your image never leaves your device and is never uploaded to any server.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "What output resolution do I get?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "BgRemove exports transparent PNGs at 4K resolution (3840×2160), preserving the original aspect ratio and centering the subject on a transparent canvas.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Does BgRemove work on mobile?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Yes. BgRemove works in any modern browser on desktop, tablet, and mobile. No app install is required.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "What image formats are supported?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "You can upload PNG, JPG, and WEBP images. The output is always a transparent PNG.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "How long does background removal take?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Most images are processed in under 5 seconds on a modern browser. Large images may take slightly longer depending on your device.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Can I use the results commercially?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Yes. You can use BgRemove outputs for personal and commercial projects. You are responsible for having the rights to the images you process.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Is there a watermark on the output?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "No. BgRemove never adds a watermark. The transparent PNG is delivered exactly as processed, at full 4K resolution.",
-          },
-        },
       ],
     },
   ],
@@ -156,40 +70,40 @@ const STEPS = [
   {
     n: "01",
     title: "Upload your image",
-    desc: "Drag and drop a PNG, JPG, or WEBP file — or click to browse. No signup, no email, no account.",
+    desc: "Choose a PNG, JPG, or WEBP image from your device. No account is required.",
   },
   {
     n: "02",
     title: "AI removes the background",
-    desc: "An on-device AI model detects the subject and erases the background automatically in seconds. Everything runs locally — your image never leaves your browser.",
+    desc: "An on-device model creates a cutout in your browser. Processing time depends on the image and your device.",
   },
   {
     n: "03",
-    title: "Download your 4K PNG",
-    desc: "Export a transparent PNG at 4K resolution (3840×2160). Use it on any background color, marketplace, or design tool.",
+    title: "Download or edit the PNG",
+    desc: "Download a transparent PNG on a 3840 × 2160 canvas, or open the editor to crop it and choose transparent, white, black, or brand-color backgrounds.",
   },
 ];
 
 const FEATURES = [
   {
     icon: "⚡",
-    title: "5-second removal",
-    desc: "One click. No manual masking, no pixel-picking, no waiting for a server round-trip.",
+    title: "Remove a background online",
+    desc: "Choose an image and let the browser-based model create a cutout. Processing time depends on your image and device.",
   },
   {
     icon: "🔒",
-    title: "100% private",
-    desc: "Processing runs in your browser via WebAssembly. Your image is never uploaded to any server.",
+    title: "Image processing in your browser",
+    desc: "The selected image is processed on your device rather than sent to BgRemove for background removal.",
   },
   {
     icon: "🖼️",
-    title: "4K transparent output",
-    desc: "Export at 3840×2160 with the alpha channel fully preserved. No resolution downgrade, no watermark.",
+    title: "Transparent PNG download",
+    desc: "Download a PNG on a 3840 × 2160 canvas. Upscaling a small source does not add image detail.",
   },
   {
     icon: "🆓",
-    title: "Free forever",
-    desc: "No signup, no credit card, no feature lock. Unlimited images with no hidden limits.",
+    title: "Free to use, no account",
+    desc: "Use the tool without creating an account. BgRemove does not add a watermark to the PNG.",
   },
   {
     icon: "📱",
@@ -198,19 +112,19 @@ const FEATURES = [
   },
   {
     icon: "🎯",
-    title: "Clean edges",
-    desc: "AI handles hair, fur, and semi-transparent objects with precision — not just hard edges.",
+    title: "Review the cutout",
+    desc: "Results vary with the source image. Check fine edges and details before using the PNG in a final design.",
   },
 ];
 
 const USE_CASES = [
   {
     title: "E-commerce product photos",
-    desc: "Amazon, Shopify, eBay, and Etsy require clean white or transparent backgrounds. Remove cluttered backdrops instantly and meet marketplace guidelines without hiring a retoucher.",
+    desc: "Create a transparent cutout for a product listing, then check the marketplace's current image rules before publishing.",
   },
   {
     title: "ID card & passport photos",
-    desc: "Remove messy home backgrounds from ID photos privately — without uploading sensitive documents to a third-party server. Export transparent, then fill with white or blue as required.",
+    desc: "Prepare a cutout locally in your browser. Check the issuing authority's current photo rules for background color, framing, and dimensions before submitting.",
   },
   {
     title: "Social media & thumbnails",
@@ -222,7 +136,7 @@ const USE_CASES = [
   },
   {
     title: "Real estate & listings",
-    desc: "Clean up product and property photos for listings, catalogs, and brochures with consistent, distraction-free backgrounds.",
+    desc: "Create cutouts for listing images and layouts. Review the result against the original before publishing.",
   },
   {
     title: "Personal projects",
@@ -232,38 +146,44 @@ const USE_CASES = [
 
 const FAQS = [
   {
-    q: "Is BgRemove really free?",
-    a: "Yes. BgRemove is 100% free with no signup, no watermark, and no hidden limits. You can remove backgrounds and download transparent 4K PNGs at no cost.",
+    q: "Can I remove an image background online for free?",
+    a: "Yes. BgRemove is free to use in your browser and does not require an account. The downloaded PNG has no BgRemove watermark.",
   },
   {
-    q: "Are my images uploaded to a server?",
-    a: "No. All processing happens locally in your browser using WebAssembly. Your image never leaves your device and is never uploaded to any server.",
+    q: "Is my image uploaded for processing?",
+    a: "The selected image is processed in your browser using WebAssembly, rather than sent to BgRemove's application server. Your browser still requests the website and model files needed to run the tool.",
   },
   {
-    q: "What output resolution do I get?",
-    a: "BgRemove exports transparent PNGs at 4K resolution (3840×2160), preserving the original aspect ratio and centering the subject on a transparent canvas.",
+    q: "What does the downloaded PNG contain?",
+    a: "By default, the cutout is centered on a 3840 × 2160 canvas with transparent space around it. If you choose a solid editor background, the PNG uses that color instead. Enlarging a small original does not restore missing detail.",
   },
   {
-    q: "Does BgRemove work on mobile?",
-    a: "Yes. BgRemove works in any modern browser on desktop, tablet, and mobile. No app install is required.",
+    q: "Can I add a white background instead of transparency?",
+    a: "Yes. After processing, choose Edit & Crop and select White in the background controls. You can also keep the background transparent or choose black or the brand color.",
   },
   {
     q: "What image formats are supported?",
-    a: "You can upload PNG, JPG, and WEBP images. The output is always a transparent PNG.",
+    a: "The tool accepts PNG, JPG, and WEBP images and downloads a PNG.",
   },
   {
-    q: "How long does background removal take?",
-    a: "Most images are processed in under 5 seconds on a modern browser. Large images may take slightly longer depending on your device.",
+    q: "Will the cutout preserve every fine edge?",
+    a: "Results depend on the image, subject, contrast, and device. Inspect hair, translucent areas, and similar fine edges; no automatic remover can guarantee a perfect result for every photo.",
   },
   {
-    q: "Can I use the results commercially?",
-    a: "Yes. You can use BgRemove outputs for personal and commercial projects. You are responsible for having the rights to the images you process.",
-  },
-  {
-    q: "Is there a watermark on the output?",
-    a: "No. BgRemove never adds a watermark. The transparent PNG is delivered exactly as processed, at full 4K resolution.",
+    q: "Can I use an edited photo for an ID or passport application?",
+    a: "The tool can create a cutout, but photo rules vary by issuing authority and may restrict edits. Check the current official requirements before submitting an edited image.",
   },
 ];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.map(({ q, a }) => ({
+    "@type": "Question",
+    name: q,
+    acceptedAnswer: { "@type": "Answer", text: a },
+  })),
+};
 
 // ============ PAGE ============
 export default function Home() {
@@ -273,6 +193,10 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <main className="overflow-x-hidden">
@@ -301,7 +225,7 @@ export default function Home() {
                 className="mx-auto mt-3 max-w-xl text-base"
                 style={{ color: "#5a4a47" }}
               >
-                Three steps. Under 10 seconds. No editing skills needed.
+                Choose an image, review the cutout, and download a transparent PNG.
               </p>
             </div>
 
@@ -350,8 +274,8 @@ export default function Home() {
                 className="mx-auto mt-3 max-w-xl text-base"
                 style={{ color: "#5a4a47" }}
               >
-                The fastest, most private way to remove image backgrounds
-                online.
+                An online background remover that processes your selected
+                image in your browser.
               </p>
             </div>
 
@@ -438,14 +362,13 @@ export default function Home() {
                 className="text-3xl font-black tracking-tight sm:text-4xl"
                 style={{ color: "#0a0a0a" }}
               >
-                How BgRemove Compares
+                What to Expect from the Download
               </h2>
               <p
                 className="mx-auto mt-3 max-w-xl text-base"
                 style={{ color: "#5a4a47" }}
               >
-                Most free tools upload your image or add a watermark. BgRemove
-                does neither.
+                A quick overview of what the tool does and what its output means.
               </p>
             </div>
 
@@ -463,19 +386,17 @@ export default function Home() {
                       BgRemove
                     </th>
                     <th className="px-5 py-4 font-semibold" style={{ color: "#5a4a47" }}>
-                      Typical Free Tools
+                      What to know
                     </th>
                   </tr>
                 </thead>
                 <tbody style={{ color: "#3d2f2c" }}>
                   {[
-                    ["Price", "Free", "Free (limited)"],
-                    ["Signup required", "No", "Often yes"],
-                    ["Watermark", "None", "Often yes"],
-                    ["Output resolution", "4K (3840×2160)", "Downgraded"],
-                    ["Image uploads to server", "Never", "Usually yes"],
-                    ["Processing location", "Your browser", "Remote server"],
-                    ["Works offline after load", "Yes", "No"],
+                    ["Price", "Free to use", "No account required"],
+                    ["Input formats", "PNG, JPG, WEBP", "Choose a supported image"],
+                    ["Download", "PNG with transparent background", "No BgRemove watermark"],
+                    ["Canvas", "3840 × 2160 pixels", "Upscaling does not add source detail"],
+                    ["Image processing", "In your browser", "Website/model files still load in your browser"],
                   ].map(([feature, ours, theirs], i) => (
                     <tr
                       key={feature}
@@ -584,8 +505,8 @@ export default function Home() {
               Ready to remove your background?
             </h2>
             <p className="mx-auto mt-3 max-w-md text-base text-white/80">
-              Upload an image and get a transparent 4K PNG in seconds. Free, no
-              signup, no uploads.
+              Remove the background in your browser and download a transparent
+              PNG, without creating an account.
             </p>
             <a
               href="#upload"
@@ -614,29 +535,34 @@ export default function Home() {
                   desc: "Step-by-step guide with no signup required.",
                 },
                 {
-                  title: "Best Free Background Remover Tools 2026",
+                  title: "What to Look for in a Free Background Remover",
                   href: "/blog/best-free-background-remover-tools-2026",
-                  desc: "We tested 7 tools — here's how they compare.",
+                  desc: "Compare privacy, formats, output, and editing needs.",
                 },
                 {
-                  title: "4K Transparent PNG Export Guide",
+                  title: "Transparent PNG Export Guide",
                   href: "/blog/4k-transparent-png-export-guide",
-                  desc: "Everything about 3840×2160 transparent output.",
+                  desc: "Understand canvas dimensions, transparency, and source detail.",
                 },
                 {
                   title: "Remove Background from ID Card Photo",
                   href: "/blog/remove-background-id-card-photo",
-                  desc: "Private, print-ready ID photo backgrounds.",
+                  desc: "Check the issuing authority's photo rules before submitting an edit.",
                 },
                 {
-                  title: "About BgRemove",
-                  href: "/about",
-                  desc: "How it works and who it's for.",
+                  title: "Remove Background from Product Photos",
+                  href: "/blog/remove-background-from-product-photos",
+                  desc: "Prepare a product cutout and review listing image requirements.",
+                },
+                {
+                  title: "Remove a Background from Product Photos",
+                  href: "/blog/remove-background-from-product-photos",
+                  desc: "Prepare a product cutout and check listing requirements.",
                 },
                 {
                   title: "Privacy Policy",
                   href: "/privacy",
-                  desc: "Your images never leave your device.",
+                  desc: "How selected images are processed in your browser.",
                 },
               ].map((link) => (
                 <Link

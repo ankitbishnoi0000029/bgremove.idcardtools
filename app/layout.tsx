@@ -2,27 +2,19 @@ import type { Metadata, Viewport } from "next";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
-
-const SITE_URL = process.env.NEXT_PUBLIC_URL
-  ? `https://${process.env.NEXT_PUBLIC_URL}`
-  : "https://bgremove.idcardtools.com";
 
 const SITE_NAME = process.env.NEXT_PUBLIC_NAME ?? "bgremove";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "BgRemove — Free AI Background Remover | 4K Transparent PNG",
+    default: "Free Online Background Remover — BgRemove",
     template: `%s | ${SITE_NAME}`,
   },
   description:
-    "Remove image backgrounds instantly with AI. 100% free, no signup. Runs entirely in your browser — export transparent 4K PNGs in seconds.",
-  keywords:
-    "background remover, remove background, AI background eraser, free background remover, transparent background, 4K background remover, bgremove",
-  authors: [{ name: SITE_NAME, url: SITE_URL }],
-  creator: SITE_NAME,
-  publisher: SITE_NAME,
+    "Remove an image background online for free. BgRemove processes your selected image in your browser and exports a transparent PNG. No account or watermark.",
   applicationName: SITE_NAME,
   category: "technology",
   alternates: { canonical: "/" },
@@ -31,9 +23,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: "BgRemove — Free AI Background Remover | 4K Transparent PNG",
+    title: "Free Online Background Remover — BgRemove",
     description:
-      "Remove image backgrounds instantly with AI. 100% free, no signup required. Export transparent 4K PNGs right in your browser.",
+      "Remove an image background online for free. Process it in your browser and export a transparent PNG, with no account or watermark.",
     images: [
       {
         url: "/og-image.png",
@@ -45,11 +37,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "BgRemove — Free AI Background Remover",
+    title: "Free Online Background Remover — BgRemove",
     description:
-      "Remove image backgrounds instantly with AI. Free, no signup, 4K transparent PNG export.",
+      "Remove an image background in your browser and download a transparent PNG. Free to use, no account or watermark.",
     images: ["/og-image.png"],
-    creator: "@bgremove",
   },
   robots: {
     index: true,
@@ -62,9 +53,9 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-  verification: {
-    google: "REPLACE_WITH_GSC_VERIFICATION_CODE",
-  },
+  verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
+    : undefined,
   icons: {
     icon: [{ url: "/favicon.ico" }],
     shortcut: ["/favicon.ico"],
@@ -92,23 +83,8 @@ const structuredData = {
       url: SITE_URL,
       name: SITE_NAME,
       description:
-        "Free AI background remover that exports transparent 4K PNGs entirely in the browser.",
-      publisher: { "@id": `${SITE_URL}/#organization` },
+        "A browser-based tool for removing image backgrounds and exporting transparent PNGs.",
       inLanguage: "en-US",
-    },
-    {
-      "@type": "Organization",
-      "@id": `${SITE_URL}/#organization`,
-      name: SITE_NAME,
-      url: SITE_URL,
-      logo: {
-        "@type": "ImageObject",
-        url: `${SITE_URL}/logo.png`,
-      },
-      sameAs: [
-        "https://twitter.com/bgremove",
-        "https://github.com/bgremove",
-      ],
     },
     {
       "@type": "WebApplication",
@@ -116,7 +92,7 @@ const structuredData = {
       name: "BgRemove",
       url: SITE_URL,
       description:
-        "AI-powered background remover. Free, no signup, runs in your browser, exports transparent 4K PNGs.",
+        "A free online background remover that processes selected images in the browser and exports transparent PNGs.",
       applicationCategory: "MultimediaApplication",
       applicationSubCategory: "Background Removal",
       operatingSystem: "Any (Web Browser)",
@@ -131,68 +107,10 @@ const structuredData = {
       featureList: [
         "AI background removal",
         "Transparent PNG export",
-        "4K resolution output",
-        "Runs 100% in browser",
-        "No signup required",
-        "No image uploads to servers",
+        "Browser-based image processing",
+        "No account required",
       ],
       screenshot: `${SITE_URL}/og-image.png`,
-      // NOTE: Remove `aggregateRating` if you don't have real user ratings.
-      // Fake ratings violate Google guidelines and can hurt AI trust signals.
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.8",
-        ratingCount: "127",
-        bestRating: "5",
-        worstRating: "1",
-      },
-      publisher: { "@id": `${SITE_URL}/#organization` },
-    },
-    {
-      "@type": "FAQPage",
-      "@id": `${SITE_URL}/#faq`,
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "Is BgRemove really free?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Yes. BgRemove is 100% free with no signup, no watermark, and no hidden limits. You can remove backgrounds and download transparent 4K PNGs at no cost.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Are my images uploaded to a server?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "No. All processing happens locally in your browser using WebAssembly. Your image never leaves your device and is never uploaded to any server.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "What output resolution do I get?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "BgRemove exports transparent PNGs at 4K resolution (3840×2160), preserving the original aspect ratio and centering the subject on a transparent canvas.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Does BgRemove work on mobile?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Yes. BgRemove works in any modern browser on desktop, tablet, and mobile. No app install is required.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "What image formats are supported?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "You can upload PNG, JPG, and WEBP images. The output is always a transparent PNG.",
-          },
-        },
-      ],
     },
     {
       "@type": "BreadcrumbList",

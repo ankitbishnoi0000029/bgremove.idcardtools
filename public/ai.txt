@@ -1,5 +1,5 @@
-# AI crawler policy for bgremove.idcardtools.com
-# All AI crawlers are welcome to index this site. Content is factual and about a free public tool.
+# AI crawler policy for bgremove.ankuaitools.com
+# Public pages are available to crawlers under the same rules as robots.txt.
 
 User-agent: GPTBot
 Allow: /
@@ -25,4 +25,4 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-Sitemap: https://bgremove.idcardtools.com/sitemap.xml
+Sitemap: https://bgremove.ankuaitools.com/sitemap.xml

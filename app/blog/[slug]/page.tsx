@@ -7,11 +7,7 @@ import {
   getRelatedPosts,
   type BlogSection,
 } from "@/lib/blog";
-
-const SITE_URL =
-  process.env.NEXT_PUBLIC_URL
-    ? `https://${process.env.NEXT_PUBLIC_URL}`
-    : "https://bgremove.idcardtools.com";
+import { SITE_URL } from "@/lib/site";
 
 type Params = { slug: string };
 
@@ -41,7 +37,6 @@ export async function generateMetadata({
       description: post.description,
       publishedTime: post.publishedAt,
       modifiedTime: post.updatedAt ?? post.publishedAt,
-      authors: ["BgRemove"],
     },
     twitter: {
       card: "summary_large_image",
@@ -158,16 +153,13 @@ export default async function BlogPostPage({
     description: post.description,
     datePublished: post.publishedAt,
     dateModified: post.updatedAt ?? post.publishedAt,
-    author: { "@type": "Organization", name: "BgRemove", url: SITE_URL },
     publisher: {
       "@type": "Organization",
       name: "BgRemove",
       url: SITE_URL,
-      logo: { "@type": "ImageObject", url: `${SITE_URL}/logo.png` },
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
     image: `${SITE_URL}/og-image.png`,
-    keywords: post.keywords.join(", "),
     articleSection: post.category,
   };
 
@@ -200,6 +192,7 @@ export default async function BlogPostPage({
       />
 
       <nav
+        aria-label="Breadcrumb"
         style={{
           fontSize: 13,
           color: "#8a7a77",
@@ -256,12 +249,35 @@ export default async function BlogPostPage({
                 day: "numeric",
               })}
             </time>
+            {post.updatedAt && (
+              <>
+                <span aria-hidden="true">·</span>
+                <time dateTime={post.updatedAt}>
+                  Updated{" "}
+                  {new Date(`${post.updatedAt}T12:00:00Z`).toLocaleDateString(
+                    "en-US",
+                    { year: "numeric", month: "long", day: "numeric" },
+                  )}
+                </time>
+              </>
+            )}
             <span>· {post.readMinutes} min read</span>
           </div>
+          <p style={{ color: "#5a4a47", fontSize: 16, lineHeight: 1.65, marginTop: 18 }}>
+            {post.excerpt}
+          </p>
         </header>
 
         {post.sections.map(renderSection)}
       </article>
+
+      <p style={{ marginTop: 40, color: "#3d2f2c", fontSize: 15, lineHeight: 1.7 }}>
+        Ready to try it?{" "}
+        <Link href="/#upload" style={{ color: "#EB4203", fontWeight: 600 }}>
+          Open the free background remover
+        </Link>
+        .
+      </p>
 
       {related.length > 0 && (
         <section style={{ marginTop: 64, paddingTop: 32, borderTop: "1px solid rgba(235,66,3,0.15)" }}>

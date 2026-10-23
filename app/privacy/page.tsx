@@ -1,10 +1,24 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "BgRemove processes images entirely in your browser. We do not upload, store, or share your images. Read the full privacy policy.",
+    "Learn how BgRemove processes selected images in your browser and what requests your browser makes when loading the tool.",
   alternates: { canonical: "/privacy" },
+  openGraph: {
+    type: "website",
+    url: `${SITE_URL}/privacy`,
+    title: "Privacy Policy",
+    description:
+      "How BgRemove processes selected images in your browser and what requests are needed to load the tool.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy",
+    description:
+      "How BgRemove processes selected images in your browser and what requests are needed to load the tool.",
+  },
 };
 
 export default function PrivacyPage() {
@@ -30,7 +44,7 @@ export default function PrivacyPage() {
       </h1>
 
       <p style={{ color: "#3d2f2c", fontSize: 16, lineHeight: 1.75 }}>
-        <strong>Last updated:</strong> {new Date().toLocaleDateString()}
+        <strong>Last updated:</strong> October 24, 2026
       </p>
 
       <h2
@@ -43,12 +57,14 @@ export default function PrivacyPage() {
           marginBottom: 10,
         }}
       >
-        Images are not uploaded
+        Image processing
       </h2>
       <p style={{ color: "#3d2f2c", fontSize: 16, lineHeight: 1.75 }}>
-        BgRemove processes images entirely in your browser using WebAssembly.
-        Your images are never transmitted to any server, never stored, and never
-        shared with third parties.
+        The selected image is processed in your browser using WebAssembly; the
+        application does not send it to BgRemove&apos;s server for background
+        removal. Your browser does make requests to load the site and the
+        model files the tool needs. The image is held in browser memory while
+        you use the tool; you can reset the editor or close the page when done.
       </p>
 
       <h2
@@ -61,12 +77,14 @@ export default function PrivacyPage() {
           marginBottom: 10,
         }}
       >
-        Analytics
+        Network requests
       </h2>
       <p style={{ color: "#3d2f2c", fontSize: 16, lineHeight: 1.75 }}>
-        We may use privacy-friendly, cookie-free analytics to understand which
-        pages are popular. These analytics do not track individual users and do
-        not collect images or image content.
+        Loading this website and its image-processing model requires your
+        browser to request files from the site&apos;s host. This is separate from
+        processing the selected image. Refer to your browser and hosting
+        provider&apos;s privacy information for details about ordinary network
+        requests.
       </p>
 
       <h2
@@ -82,7 +100,11 @@ export default function PrivacyPage() {
         Contact
       </h2>
       <p style={{ color: "#3d2f2c", fontSize: 16, lineHeight: 1.75 }}>
-        Questions? Reach out via the GitHub link in the footer.
+        Questions about image handling? Review the{" "}
+        <a href="/about" style={{ color: "#EB4203" }}>
+          About page
+        </a>
+        .
       </p>
     </main>
   );

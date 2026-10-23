@@ -20,11 +20,11 @@ const FOOTER_COLS = [
         href: "/blog/how-to-remove-image-background-free",
       },
       {
-        label: "Best Free Tools 2026",
+        label: "Choosing a Free Background Remover",
         href: "/blog/best-free-background-remover-tools-2026",
       },
       {
-        label: "4K PNG Guide",
+        label: "Transparent PNG Guide",
         href: "/blog/4k-transparent-png-export-guide",
       },
     ],
@@ -125,7 +125,7 @@ export default function Footer() {
               className="mt-4 max-w-[280px] text-sm leading-relaxed"
               style={{ color: "#5a4a47" }}
             >
-              Free AI background remover that runs entirely in your browser. Transparent 4K PNGs. No signup. No uploads.
+              Free online background remover. Process the selected image in your browser and download a transparent PNG without an account or watermark.
             </p>
 
             {/* Badges */}
@@ -205,7 +205,7 @@ export default function Footer() {
             className="text-xs"
             style={{ color: "#8a7a77" }}
           >
-            Made for creators &amp; sellers · <span style={{ color: "#EB4203", fontWeight: 600 }}>4K ready</span>
+            Browser-based image processing · <span style={{ color: "#EB4203", fontWeight: 600 }}>Transparent PNG export</span>
           </p>
         </div>
       </div>
