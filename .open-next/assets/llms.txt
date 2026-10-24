@@ -1,0 +1,32 @@
+# BgRemove
+
+> A free online background remover. Selected images are processed in the browser and exported as PNGs with transparent backgrounds.
+
+## Pages
+
+- [Home](https://bgremove.ankuaitools.com): Remove an image background, review the cutout, and download a PNG.
+- [About](https://bgremove.ankuaitools.com/about): How browser-based processing and PNG export work.
+- [Blog](https://bgremove.ankuaitools.com/blog): Practical background removal and transparent PNG guides.
+- [Privacy](https://bgremove.ankuaitools.com/privacy): Image handling and website network requests.
+- [Terms](https://bgremove.ankuaitools.com/terms): Terms and output-use limitations.
+
+## Guides
+
+- [How to remove an image background online for free](https://bgremove.ankuaitools.com/blog/how-to-remove-image-background-free)
+- [How to choose a free online background remover](https://bgremove.ankuaitools.com/blog/best-free-background-remover-tools-2026)
+- [Transparent PNGs: canvas size, backgrounds, and image detail](https://bgremove.ankuaitools.com/blog/4k-transparent-png-export-guide)
+- [How to prepare an ID photo background carefully](https://bgremove.ankuaitools.com/blog/remove-background-id-card-photo)
+- [How to remove a background from product photos](https://bgremove.ankuaitools.com/blog/remove-background-from-product-photos)
+
+## Tool details
+
+- Price: Free to use; no account required.
+- Input formats: PNG, JPG, and WEBP.
+- Download: PNG with a 3840 × 2160 pixel canvas; the tool does not add a watermark.
+- Processing: The selected image is processed in the browser. The website and model files still load in the browser.
+- Background options: Transparent, white, black, or brand color in the editor.
+- Limitations: Enlarging a small source does not add detail, and automatic cutouts can need review.
+
+## Sitemap
+
+- https://bgremove.ankuaitools.com/sitemap.xml

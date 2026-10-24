@@ -1,0 +1,38 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Verify OpenNext Cloudflare build",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"build"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Verify OpenNext build output",
+			"type": "shell",
+			"command": "npx",
+			"args": [
+				"opennextjs-cloudflare",
+				"build"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Deploy production to Cloudflare",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"deploy"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		}
+	]
+}
